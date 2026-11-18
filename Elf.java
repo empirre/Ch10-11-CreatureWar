@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Elf
+public class Elf extends Creature
 {
     // instance variables - replace the example below with your own
     private static final int MAX_ELF_HP = 25;
@@ -17,8 +17,9 @@ public class Elf
      */
     public Elf()
     {
-        // initialise instance variables
-        x = 0;
+        super(
+            Randomizer.nextInt(MAX_ELF_STR - MIN_ELF_STR + 1) + MIN_ELF_STR,
+            Randomizer.nextInt(MAX_ELF_HP - MIN_ELF_HP + 1) + MIN_ELF_HP );
     }
 
     /**
@@ -27,9 +28,15 @@ public class Elf
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public int attack()
     {
-        // put your code here
-        return x + y;
+        int damage = super.attack();
+
+        if (Randomizer.nextInt(100) < 10)
+        {
+            damage = damage * 2;
+        }
+
+        return damage;
     }
 }

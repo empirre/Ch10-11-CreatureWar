@@ -2,10 +2,10 @@
 /**
  * Write a description of class Balrog here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Saba Machavariani)
+ * @version (11/06/2026)
  */
-public class Balrog
+public class Balrog extends Demon
 {
     // instance variables - replace the example below with your own
     private static final int MAX_BALROG_HP = 200;
@@ -18,8 +18,9 @@ public class Balrog
      */
     public Balrog()
     {
-        // initialise instance variables
-        x = 0;
+        super(
+            Randomizer.nextInt(MAX_BALROG_STR - MIN_BALROG_STR + 1) + MIN_BALROG_STR - 1,
+            Randomizer.nextInt(MAX_BALROG_HP - MIN_BALROG_HP + 1) + MIN_BALROG_HP - 1);
     }
 
     /**
@@ -28,9 +29,11 @@ public class Balrog
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public int attack()
     {
-        // put your code here
-        return x + y;
+       int damage = super.attack();
+       damage = damage + super.attack();
+
+        return damage;
     }
 }

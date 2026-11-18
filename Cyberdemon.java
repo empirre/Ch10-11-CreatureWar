@@ -2,10 +2,10 @@
 /**
  * Write a description of class Cyberdemon here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Saba Machavariani)
+ * @version (11/06/2026)
  */
-public class Cyberdemon
+public class Cyberdemon extends Demon
 {
     // instance variables - replace the example below with your own
     private static final int MAX_CYBERDEMON_HP = 100;
@@ -17,19 +17,8 @@ public class Cyberdemon
      */
     public Cyberdemon()
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        super(
+            Randomizer.nextInt(MAX_CYBERDEMON_STR - MIN_CYBERDEMON_STR + 1) + MIN_CYBERDEMON_STR,
+            Randomizer.nextInt(MAX_CYBERDEMON_HP - MIN_CYBERDEMON_HP + 1) + MIN_CYBERDEMON_HP);
     }
 }

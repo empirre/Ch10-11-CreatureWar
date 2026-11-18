@@ -2,10 +2,10 @@
 /**
  * Write a description of class Demon here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Saba Machavariani)
+ * @version (11/06/2026)
  */
-public class Demon
+public class Demon extends Creature
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -13,10 +13,9 @@ public class Demon
     /**
      * Constructor for objects of class Demon
      */
-    public Demon()
+    public Demon(int str,int hp)
     {
-        // initialise instance variables
-        x = 0;
+        super(str, hp);
     }
 
     /**
@@ -25,9 +24,15 @@ public class Demon
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public int attack()
     {
-        // put your code here
-        return x + y;
+        int damage = super.attack();
+
+        if (Randomizer.nextInt(100) < 5)
+        {
+            damage = damage + 50;
+        }
+
+        return damage;
     }
 }
